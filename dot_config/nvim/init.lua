@@ -686,7 +686,13 @@ do
   --  See `:help lsp-config` for information about keys and how to configure
   ---@type table<string, vim.lsp.Config>
   local servers = {
-    clangd = {},
+    clangd = {
+      settings = {
+        clangd = {
+          format = { enable = true }, -- Disable formatting (formatting is done by stylua)
+        },
+      },
+    },
     -- gopls = {},
     -- pyright = {},
     -- rust_analyzer = {},
@@ -713,7 +719,7 @@ do
           runtime = {
             version = 'LuaJIT',
             path = { 'lua/?.lua', 'lua/?/init.lua' },
-          },
+        },
           workspace = {
             checkThirdParty = false,
             -- NOTE: this is a lot slower and will cause issues when working on your own configuration.
@@ -728,7 +734,7 @@ do
       ---@type lspconfig.settings.lua_ls
       settings = {
         Lua = {
-          format = { enable = false }, -- Disable formatting (formatting is done by stylua)
+          format = { enable = true }, -- Disable formatting (formatting is done by stylua)
         },
       },
     },
