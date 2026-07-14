@@ -33,6 +33,13 @@ echo ""
 #            print_message "wezterm-nightly COPR already enabled, skipping..."
 #        fi
 
+        if ! dnf repolist | grep -qi "librewolf"; then
+
+        print_message "Adding Librewolf repo..."
+        sudo dnf config-manager addrepo --from-repofile=https://repo.librewolf.net/librewolf.repo
+
+        fi
+
         sudo dnf install -y \
             git \
             git-crypt \
@@ -53,7 +60,8 @@ echo ""
             jq \
             eza \
             gcc \
-            valgrind
+            valgrind \
+            librewolf
 
     {{ end }}
 {{ end }}
