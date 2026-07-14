@@ -63,5 +63,38 @@ echo ""
             valgrind \
             librewolf
 
+        if ! command -v vesktop &> /dev/null; then
+
+            # Vesktop Installation
+
+            VESKTOP_URL="https://vencord.dev/download/vesktop/amd64/rpm"
+            VESKTOP_RPM="/tmp/vesktop.rpm"
+
+            if [ ! -f "$VESKTOP_RPM" ]; then
+                print_message "Downloading Vesktop RPM..."
+                echo ""
+            wget -O "$VESKTOP_RPM" "$VESKTOP_URL" || curl -L -o "$VESKTOP_RPM" "$VESKTOP_URL"
+
+            fi
+
+            # -ne -> not equal
+            if [ $? -ne 0 ]; then
+                print_error "Failed to download RPM package"
+                exit 1
+            fi
+
+            print_message "Installing RPM package..."
+            sudo dnf install -y "$VESKTOP_RPM"
+
+            if [ $? -eq 0 ]; then
+                print_message "Package installed successfully!"
+            else
+                print_error "Package installation failed"
+                exit 1
+            fi
+
+            # Clean up
+            rm -f "$VESKTOP_RPM"
+        fi
     {{ end }}
 {{ end }}
