@@ -22,6 +22,54 @@ print_error() {
 echo ""
 
 {{ if eq .chezmoi.os "linux" }}
+
+    if ! fc-list | grep -qi "JetBrainsMono.*Nerd"; then
+
+        FONT_PATH="/usr/local/share/fonts/"
+        JETBRAINS_URL="https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/JetBrainsMono.zip"
+        JETBRAINS_FONT="$FONT_PATH/JetBrainsMono"
+
+        if [ -f "/tmp/Jetbrains-Mono.zip" ]; then
+
+        print_message "File found at /tmp/Jetbrains-Mono.zip "
+
+        else
+           print_message "Downloading JetBrains Mono Nerd Font..."
+
+            if command -v wget &>/dev/null; then
+
+            wget -q --force-progress -O /tmp/Jetbrains-Mono.zip "$JETBRAINS_URL"
+
+            elif command -v curl &>/dev/null; then
+
+                curl -L --progress-bar -o /tmp/Jetbrains-Mono.zip "$JETBRAINS_URL"
+
+            else
+                print_message "Error: Neither wget nor curl is installed."
+                exit 1
+            fi
+        fi
+
+            print_message "Creating Directory for JetBrains..."
+
+            sudo mkdir -p "$JETBRAINS_FONT"
+            sudo chmod 755 "$JETBRAINS_FONT"
+
+            print_message "Extracting fonts..."
+            sudo unzip -qo /tmp/Jetbrains-Mono.zip -d "$JETBRAINS_FONT"
+
+            sudo chmod 644 "$JETBRAINS_FONT"/*
+
+            echo ""
+
+            print_message "Updating system font cache..."
+            sudo fc-cache -f &>/dev/null
+
+        print_message "Successfully Installed Jetbrains Font"
+
+        echo ""
+    fi
+
     {{ if eq .chezmoi.osRelease.id "fedora" }}
 
         print_message "Fedora Linux Detected!"
@@ -55,7 +103,6 @@ echo ""
             onefetch \
             cargo \
             nix \
-            jetbrains-mono-nl-fonts.noarch \
             xz \
             jq \
             eza \
