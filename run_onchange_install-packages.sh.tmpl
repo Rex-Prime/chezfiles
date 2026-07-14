@@ -88,11 +88,14 @@ echo ""
             sudo dnf copr enable lihaohong/yazi
         fi
 
-        if ! dnf repolist | grep -qi "librewolf"; then
+        if ! dnf copr list | grep -q "peterwu/rendezvous"; then
+            print_message "Adding rendezvous COPR..."
+            sudo dnf copr enable peterwu/rendezvous
+        fi
 
+        if ! dnf repolist | grep -qi "librewolf"; then
         print_message "Adding Librewolf repo..."
         sudo dnf config-manager addrepo --from-repofile=https://repo.librewolf.net/librewolf.repo
-
         fi
 
         sudo dnf install -y \
@@ -116,7 +119,8 @@ echo ""
             eza \
             gcc \
             valgrind \
-            librewolf
+            librewolf \
+            bibata-cursor-themes
 
         if ! command -v vesktop &> /dev/null; then
 
