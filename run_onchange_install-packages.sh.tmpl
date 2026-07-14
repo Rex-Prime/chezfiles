@@ -88,6 +88,11 @@ echo ""
             sudo dnf copr enable lihaohong/yazi
         fi
 
+        if ! dnf copr list | grep -q "mineiro/satty"; then
+            print_message "Enabling satty COPR..."
+            sudo dnf copr enable mineiro/satty
+        fi
+
         if ! dnf copr list | grep -q "peterwu/rendezvous"; then
             print_message "Adding rendezvous COPR..."
             sudo dnf copr enable peterwu/rendezvous
