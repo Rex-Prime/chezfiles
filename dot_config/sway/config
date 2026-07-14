@@ -228,6 +228,23 @@ client.background       #ffffff
 
     # Move focus to the parent container
     bindsym $mod+a focus parent
+
+#
+# Screenshot:
+#
+
+# Wayscriber
+bindsym $mod+Shift+w exec wayscriber --active
+
+# Screenshots
+bindsym $mod+Shift+x exec bash -c 'FILENAME="$HOME/Screenshots/screenshot-$(date +%Y_%m_%d_%H)-$(date +%s).png"; grim -g "$(slurp)" "$FILENAME"'
+
+bindsym $mod+Shift+s exec grim -g "$(slurp)" - | wl-copy
+
+bindsym $mod+Print exec bash -c 'FILENAME="$HOME/Screenshots/screenshot-$(date +%Y_%m_%d_%H)-$(date +%s).png"; grim "$FILENAME" && wl-copy < "$FILENAME" && notify-send "Grim" "Copied to clipboard and saved to $FILENAME"'
+
+bindsym $mod+Shift+Print exec bash -c 'FILENAME="$HOME/Screenshots/screenshot-$(date +%Y_%m_%d_%H)-$(date +%s).png"; grim - | satty --filename - --fullscreen --output-filename "$FILENAME"'
+
 #
 # Scratchpad:
 #
