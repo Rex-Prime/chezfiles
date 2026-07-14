@@ -30,6 +30,8 @@ bar {
     swaybar_command waybar
 }
 
+exec wl-paste --type text --watch cliphist store
+exec wl-paste --type image --watch cliphist store
 
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
@@ -140,6 +142,9 @@ client.background       #ffffff
     # Start your launcher
     bindsym $mod+r exec $menu
 
+    # Clipboard
+    bindsym $mod+v exec cliphist list | rofi -dmenu | cliphist decode | wl-copy
+
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
     # Despite the name, also works for non-floating windows.
@@ -210,7 +215,7 @@ client.background       #ffffff
     # $mod+b or $mod+v, for horizontal and vertical splits
     # respectively.
     bindsym $mod+b splith
-    bindsym $mod+v splitv
+    #bindsym $mod+v splitv
 
     # Switch the current container between different layout styles
     bindsym $mod+s layout stacking
