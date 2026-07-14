@@ -26,12 +26,12 @@ echo ""
 
         print_message "Fedora Linux Detected!"
 
-        if ! dnf copr list | grep -q "wezfurlong/wezterm-nightly"; then
-            print_message "Enabling wezterm-nightly COPR..."
-            sudo dnf copr enable wezfurlong/wezterm-nightly -y
-        else
-            print_message "wezterm-nightly COPR already enabled, skipping..."
-        fi
+#        if ! dnf copr list | grep -q "wezfurlong/wezterm-nightly"; then
+#            print_message "Enabling wezterm-nightly COPR..."
+#            sudo dnf copr enable wezfurlong/wezterm-nightly -y
+#        else
+#            print_message "wezterm-nightly COPR already enabled, skipping..."
+#        fi
 
         sudo dnf install -y \
             git \
@@ -39,6 +39,7 @@ echo ""
             delta \
             gnupg \
             stow \
+	    nvim \
             zsh \
             zoxide \
             fzf \
@@ -49,7 +50,7 @@ echo ""
             jetbrains-mono-nl-fonts.noarch \
             xz \
             jq \
-            wezterm \
+            #wezterm \
             eza \
             gcc \
             valgrind
