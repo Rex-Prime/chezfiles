@@ -6,6 +6,29 @@
 
 ### Variables
 #
+
+# Cursor Themes
+#seat seat0 xcursor_theme Bibata-Modern-Ice 28
+
+#exec_always {
+#    export XCURSOR_THEME=Bibata-Modern-Ice
+#    export XCURSOR_SIZE=28
+#}
+
+set $gnome-schema org.gnome.desktop.interface
+
+exec_always {
+    #gsettings set $gnome-schema gtk-theme 'Your theme'
+    #gsettings set $gnome-schema icon-theme 'Your icon theme'
+    gsettings set $gnome-schema cursor-theme 'Bibata-Modern-Ice'
+    #gsettings set $gnome-schema font-name 'Your font name'
+}
+
+bar {
+    swaybar_command waybar
+}
+
+
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
 # Home row direction keys, like vim
