@@ -81,6 +81,13 @@ echo ""
 #            print_message "wezterm-nightly COPR already enabled, skipping..."
 #        fi
 
+        echo ""
+
+        if ! dnf copr list | grep -q "lihaohong/yazi"; then
+            print_message "Enabling yazi COPR..."
+            sudo dnf copr enable lihaohong/yazi
+        fi
+
         if ! dnf repolist | grep -qi "librewolf"; then
 
         print_message "Adding Librewolf repo..."
@@ -99,6 +106,7 @@ echo ""
             zsh \
             zoxide \
             fzf \
+            yazi \
             fastfetch \
             onefetch \
             cargo \
