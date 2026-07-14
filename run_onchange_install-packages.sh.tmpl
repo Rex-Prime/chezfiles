@@ -29,7 +29,7 @@ echo ""
         JETBRAINS_URL="https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/JetBrainsMono.zip"
         JETBRAINS_FONT="$FONT_PATH/JetBrainsMono"
 
-        if [ -f "/tmp/Jetbrains-Mono.zip" ]; then
+        if [ -s "/tmp/Jetbrains-Mono.zip" ]; then
 
         print_message "File found at /tmp/Jetbrains-Mono.zip "
 
