@@ -84,6 +84,9 @@ vim.pack.add({ gh("windwp/nvim-autopairs") })
 -- CCC
 vim.pack.add({ gh("uga-rosa/ccc.nvim") })
 
+-- Cord
+vim.pack.add({gh 'vyfor/cord.nvim'})
+
 require("plugins.config.colors.tokyonight")
 require("plugins.config.guess-indent")
 require("plugins.config.lualine")
@@ -93,6 +96,7 @@ require("plugins.config.luasnip")
 require("plugins.config.blink")
 require("plugins.config.autopairs")
 require("plugins.config.ccc")
+require("plugins.config.cord")
 
 require("plugins.config.mason")
 require("plugins.config.lsp")
