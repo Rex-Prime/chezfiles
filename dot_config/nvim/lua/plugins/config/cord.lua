@@ -1,4 +1,4 @@
-local ok, cord = pcall(require, 'cord.nvim')
+local ok, cord = pcall(require, 'cord')
 
 if not ok then
   return
