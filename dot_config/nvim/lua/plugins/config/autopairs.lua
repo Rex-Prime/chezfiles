@@ -1,4 +1,4 @@
-local ok, autopairs = pcall(require, "autopairs.nvim")
+local ok, autopairs = pcall(require, "nvim-autopairs")
 
 if not ok then
 	return
