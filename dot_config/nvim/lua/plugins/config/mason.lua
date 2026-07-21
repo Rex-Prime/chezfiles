@@ -16,6 +16,7 @@ vim.list_extend(ensure_installed, {
 
 	"markdownlint",
 	"cpplint",
+	"lua-language-server"
 })
 
 installer.setup({
