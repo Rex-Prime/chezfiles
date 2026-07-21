@@ -62,6 +62,7 @@ _G.lsp_servers = {
 			},
 		},
 	},
+	rust_analyzer = {},
 }
 
 -- native neovim activation loop

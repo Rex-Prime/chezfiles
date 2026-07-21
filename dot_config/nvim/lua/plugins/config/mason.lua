@@ -1,7 +1,7 @@
-local mason_ok, mason = pcall(require, "mason")
-local installer_ok, installer = pcall(require, "mason-tool-installer")
+local mason_ok, mason = pcall(require, 'mason')
+local installer_ok, installer = pcall(require, 'mason-tool-installer')
 if not (mason_ok and installer_ok) then
-	return
+    return
 end
 
 mason.setup()
@@ -11,15 +11,15 @@ local ensure_installed = vim.tbl_keys(_G.lsp_servers or {})
 
 -- extend the list with non-LSP tools (Formatters / Linters)
 vim.list_extend(ensure_installed, {
-	"stylua",
-	"clang-format",
+    'stylua',
+    'clang-format',
 
-	"markdownlint",
-	"cpplint",
-	"lua-language-server"
+    'markdownlint',
+    'cpplint',
+    'lua-language-server',
 })
 
 installer.setup({
-	ensure_installed = ensure_installed,
-	run_on_start = true,
+    ensure_installed = ensure_installed,
+    run_on_start = true,
 })
