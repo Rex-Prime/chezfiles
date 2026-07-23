@@ -106,39 +106,10 @@ echo ""
         sudo dnf config-manager addrepo --from-repofile=https://repo.librewolf.net/librewolf.repo
         fi
 
-        # Mise
-        if ! dnf copr list | grep -q "jdxcode/mise"; then
-            print_message "Enabling Mise COPR..."
-            sudo dnf copr enable jdxcode/mise -y
-        fi
-
-        if ! command -v mise &>/dev/null; then
-            print_message "Installing Mise..."
-            echo ""
-            sudo dnf install mise
-        fi
-
-        COMPLETION_DIR="$HOME/.zfunc"
-        COMPLETION_FILE="$COMPLETION_DIR/_mise"
-
-        if [[ -d "COMPLETION_DIR" ]]; then
-
-            print_message "Creating completion directory: $COMPLETION_DIR"
-            mkdir -p "$COMPLETION_DIR"
-
-            if [[ ! -f "$COMPLETION_FILE" ]]; then
-                if ! command -v usage &>/dev/null; then
-                    mise use -g usage@latest
-                fi
-                print_message "Generating mise completions..."
-                sudo bash -c "mise completion zsh > /usr/local/share/zsh/site-functions/_mise"
-            fi
-        fi
-
         if ! command -v wayscriber &> /dev/null; then
 
-            print_message "Installing Wayscriber..."
-            echo ""
+        print_message "Installing Wayscriber..."
+        echo ""
 
             cat <<'EOF' | sudo tee /etc/yum.repos.d/wayscriber.repo
 [wayscriber]
