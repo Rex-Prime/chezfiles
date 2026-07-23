@@ -25,10 +25,10 @@ echo ""
 
     print_message "Installing Mise Packages..."
 
-    mise use -g rust
+    mise use -g rust rust-analyzer
 
-    mise use -g clang
-   
+    mise use -g clang clang-format
+
     mise use -g lua
     mise use -g lua-language-server
     mise use -g stylua
