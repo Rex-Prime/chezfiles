@@ -58,12 +58,9 @@ vim.pack.add({ gh('nvim-lualine/lualine.nvim') })
 -- Lint
 vim.pack.add({ gh('mfussenegger/nvim-lint') })
 
--- Lsp, Mason & Friends
+-- Lsp
 vim.pack.add({
   gh('neovim/nvim-lspconfig'),
-  gh('williamboman/mason.nvim'),
-  gh('williamboman/mason-lspconfig.nvim'),
-  gh('WhoIsSethDaniel/mason-tool-installer.nvim'),
 })
 
 -- Formatter
@@ -102,5 +99,4 @@ require('plugins.config.ccc')
 require('plugins.config.cord')
 require('plugins.config.indent-blankline')
 
-require('plugins.config.mason')
 require('plugins.config.lsp')

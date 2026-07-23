@@ -22,3 +22,5 @@ opt.updatetime = 250
 opt.undofile = true
 
 opt.clipboard = "unnamedplus"
+
+vim.env.PATH = vim.env.HOME .. "/.local/share/mise/shims:" .. vim.env.PATH
