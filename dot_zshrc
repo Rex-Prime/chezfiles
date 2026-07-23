@@ -108,8 +108,10 @@ SAVEHIST=10000
 HISTFILE=~/.zsh_history
 mkdir -p "$(dirname "$HISTFILE")"
 
-# Mise
-eval "$(mise activate zsh)"
+if command -v mise &> /dev/null; then
+  eval "$(mise activate zsh)"
+elif [[ -x "$HOME/.local/bin/mise" ]]; then
+  eval "$($HOME/.local/bin/mise activate zsh)"
 
 # ZSH options for better experience
 setopt NO_BEEP
@@ -180,4 +182,3 @@ alias nix-env-old='sudo nix-env --profile /nix/var/nix/profiles/system --delete-
 if [[ -n "$ZSH_DEBUGRC" ]]; then
   zprof
 fi
-
