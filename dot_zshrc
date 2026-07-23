@@ -14,7 +14,6 @@ fi
 fpath=(/usr/share/zsh/site-functions /usr/share/zsh/$ZSH_VERSION/functions $fpath)
 fpath+=~/.zfunc
 
-
 # Initialize zinit
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
     print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
@@ -95,7 +94,6 @@ export EDITOR="nvim"
 export DEFAULT_TARGET_DIR=~/Screenshots
 
 # Cargo Setup
-
 export PATH="$HOME/.cargo/bin:$PATH"
 
 # XDG setup
@@ -109,6 +107,9 @@ HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.zsh_history
 mkdir -p "$(dirname "$HISTFILE")"
+
+# Mise
+eval "$(mise activate zsh)"
 
 # ZSH options for better experience
 setopt NO_BEEP
