@@ -22,15 +22,17 @@ print_error() {
 echo ""
 
 {{ if eq .chezmoi.os "linux" }}
+    
+    if command -v mise >/dev/null 2>&1; then
+        print_message "Installing Mise Packages..."
 
-    print_message "Installing Mise Packages..."
+        mise use -g rust rust-analyzer
 
-    mise use -g rust rust-analyzer
+        mise use -g clang clang-format
 
-    mise use -g clang clang-format
-
-    mise use -g lua
-    mise use -g lua-language-server
-    mise use -g stylua
+        mise use -g lua
+        mise use -g lua-language-server
+        mise use -g stylua
+    fi
 
 {{ end }}
