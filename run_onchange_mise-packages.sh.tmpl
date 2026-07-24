@@ -26,6 +26,8 @@ echo ""
     if command -v mise >/dev/null 2>&1; then
         print_message "Installing Mise Packages..."
 
+        mise use -g usage
+        
         mise use -g lua
         mise use -g lua-language-server
         mise use -g stylua
