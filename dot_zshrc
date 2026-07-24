@@ -112,6 +112,7 @@ if command -v mise &> /dev/null; then
   eval "$(mise activate zsh)"
 elif [[ -x "$HOME/.local/bin/mise" ]]; then
   eval "$($HOME/.local/bin/mise activate zsh)"
+fi
 
 # ZSH options for better experience
 setopt NO_BEEP
