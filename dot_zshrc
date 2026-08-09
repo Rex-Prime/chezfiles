@@ -164,6 +164,8 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 
+alias vim='nvim'
+
 alias el='eza'
 alias ll='eza -l --header --group-directories-first --time-style=long-iso'
 alias la='eza -la --header --group-directories-first --time-style=long-iso'
@@ -171,7 +173,6 @@ alias tree='eza --tree'
 
 alias ff='fastfetch'
 alias of='onefetch'
-
 
 alias ngc='sudo nix-collect-garbage'
 alias nsweep='sudo nix-store --gc && sudo nix-collect-garbage -d'
