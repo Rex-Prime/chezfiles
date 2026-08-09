@@ -246,7 +246,7 @@ client.background       #ffffff
 #
 
 # Wayscriber
-bindsym $mod+Shift+w exec wayscriber --daemon
+bindsym $mod+Shift+w exec wayscriber --active
 
 # Screenshots
 bindsym $mod+Shift+x exec bash -c 'FILENAME="$HOME/Screenshots/screenshot-$(date +%Y_%m_%d_%H)-$(date +%s).png"; grim -g "$(slurp)" "$FILENAME"'
