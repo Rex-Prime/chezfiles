@@ -194,8 +194,40 @@ EOF
             # Clean up
             rm -f "$VESKTOP_RPM"
         fi
-        if command -v luarocks &> /dev/null; then
-            sudo luarocks install luacheck
-        fi
     {{ end }}
+
+        # Tooling
+        if command -v luarocks &> /dev/null; then
+            if ! command -v luacheck &> /dev/null; then
+                sudo luarocks install luacheck
+            fi
+        fi
+        
+        # Python
+        if command -v uv &> /dev/null; then
+            INSTALL_CMD="sudo uv pip install --system"
+        else
+            print_warning "UV not found"
+            print_message "Using pip instead"
+            INSTALL_CMD="pip install"
+        fi
+
+        install_if_missing() {
+        local tool=$1
+        if ! command -v "$tool" &> /dev/null; then
+            print_message "Installing $tool..."
+            $INSTALL_CMD "$tool"
+            print_success "$tool installed"
+        fi
+        }
+
+        install_if_missing pyright
+
+        install_if_missing ruff
+        install_if_missing black
+        install_if_missing isort
+
+        install_if_missing pylint
+        install_if_missing flake8
+
 {{ end }}
