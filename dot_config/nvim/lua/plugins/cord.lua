@@ -1,10 +1,8 @@
-local ok, cord = pcall(require, 'cord')
-
-if not ok then
-  return
-end
-
-cord.setup({
+return {
+  'vyfor/cord.nvim',
+   ---@type CordConfig
+  opts = {
+    -- ...
   display = {
     theme = 'void',
   },
@@ -58,4 +56,6 @@ cord.setup({
       activity.type = 'playing' -- 'playing' | 'listening' | 'watching' | 'competing'
     end,
   },
-})
+},
+}
+

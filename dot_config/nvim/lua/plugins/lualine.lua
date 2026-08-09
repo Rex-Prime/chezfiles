@@ -1,10 +1,5 @@
-local ok, lualine = pcall(require, "lualine")
-if not ok then
-	return
-end
-
-lualine.setup({
-
+return {
+	"nvim-lualine/lualine.nvim",
 	options = {
 		icons_enabled = true,
 		theme = "auto",
@@ -58,4 +53,4 @@ lualine.setup({
 	winbar = {},
 	inactive_winbar = {},
 	extensions = {},
-})
+}
