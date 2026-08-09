@@ -1,0 +1,6 @@
+[tools]
+lua = "latest"
+lua-language-server = "latest"
+markdownlint-cli2 = "latest"
+stylua = "latest"
+usage = "latest"
