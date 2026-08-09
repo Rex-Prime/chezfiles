@@ -147,6 +147,7 @@ EOF
             fastfetch \
             onefetch \
             nix \
+            luarocks \
             xz \
             jq \
             eza \
@@ -190,6 +191,9 @@ EOF
 
             # Clean up
             rm -f "$VESKTOP_RPM"
+        fi
+        if command -v luarocks &> /dev/null; then
+            sudo luarocks install luacheck
         fi
     {{ end }}
 {{ end }}
