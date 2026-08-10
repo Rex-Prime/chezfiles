@@ -1,6 +1,6 @@
 return {
   'neovim/nvim-lspconfig',
-
+  event = { 'BufReadPre', 'BufEnter' },
   opts = {
     clangd = {},
 
