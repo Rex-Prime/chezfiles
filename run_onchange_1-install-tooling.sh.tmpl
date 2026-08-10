@@ -56,4 +56,37 @@ install_if_missing isort
 install_if_missing pylint
 install_if_missing flake8
 
+# Rust
+if ! command -v rustup &> /dev/null; then
+    print_message "Installing rustup..."
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+
+    source "$HOME/.cargo/env"
+fi
+
+if command -v rustup &> /dev/null; then
+    for component in rust-analyzer rustfmt clippy; do
+        if ! rustup component list --installed | grep -q "$component"; then
+            print_message "Installing $component..."
+            rustup component add "$component"
+        else
+            print_message "$component already installed"
+        fi
+    done
+
+    if [[ ! -f ~/.zfunc/_rustup ]] || [[ ! -f ~/.zfunc/_cargo ]]; then
+        echo "Generating Rust completions..."
+        rustup completions zsh > ~/.zfunc/_rustup
+        rustup completions zsh cargo > ~/.zfunc/_cargo
+        echo "Completions installed to ~/.zfunc/"
+    fi
+fi
+
+for target in wasm32-unknown-unknown; do
+    if ! rustup target list --installed | grep -q "$target"; then
+        print_message "Installing target: $target..."
+        rustup target add "$target"
+    fi
+done
+
 {{ end }}
