@@ -13,7 +13,7 @@ opt.scrolloff = 10
 opt.ignorecase = true
 opt.smartcase = true
 opt.termguicolors = true
-opt.signcolumn = "yes"
+opt.signcolumn = 'yes'
 
 opt.updatetime = 250
 -- vim.o.timeoutlen = 300
@@ -21,6 +21,6 @@ opt.updatetime = 250
 -- keeping undo changes
 opt.undofile = true
 
-opt.clipboard = "unnamedplus"
+opt.clipboard = 'unnamedplus'
 
-vim.env.PATH = vim.env.HOME .. "/.local/share/mise/shims:" .. vim.env.PATH
+vim.env.PATH = vim.env.HOME .. '/.local/share/mise/shims:' .. vim.env.PATH
