@@ -4,6 +4,8 @@ return {
   opts = {
     clangd = {},
 
+    ty = {},
+
     lua_ls = {
       settings = {
         Lua = {

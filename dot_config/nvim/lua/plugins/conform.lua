@@ -9,6 +9,7 @@ return {
       html = { 'prettierd', 'prettier' },
       css = { 'prettierd', 'prettier' },
       java = { 'google-java-format' },
+      python = { 'black' },
     },
     formatters = {
       stylua = {
