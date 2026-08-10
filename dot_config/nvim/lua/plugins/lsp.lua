@@ -31,6 +31,9 @@ return {
       virtual_text = false,
       severity_sort = true,
       update_in_insert = false,
+      float = {
+        border = 'single';
+      }
     })
 
     for name, config in pairs(opts) do
