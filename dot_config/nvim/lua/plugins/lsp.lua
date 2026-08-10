@@ -27,10 +27,8 @@ return {
 
   config = function(_, opts)
     vim.diagnostic.config({
-      virtual_text = {
-        spacing = 4,
-        prefix = '■',
-      },
+      virtual_lines = false,
+      virtual_text = false,
       severity_sort = true,
       update_in_insert = false,
     })
